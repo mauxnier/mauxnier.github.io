@@ -219,7 +219,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #3478a5 !important;
+			color: #34a58e !important;
 			background-color: white !important;
 		}
 
@@ -1280,7 +1280,7 @@ input, select, textarea {
 		}
 
 			.poptrox-popup .caption h2, .poptrox-popup .caption h3, .poptrox-popup .caption h4, .poptrox-popup .caption h5, .poptrox-popup .caption h6 {
-				margin: 0 0 0.5em 0;
+				margin: 0.5em 0 0.5em 0;
 			}
 
 			.poptrox-popup .caption p {
@@ -1668,6 +1668,10 @@ input, select, textarea {
 				display: none;
 			}
 
+			#main .thumb > .redirect-github {
+				display: none;
+			}
+
 		#main:after {
 			pointer-events: none;
 			-moz-transition: opacity 0.5s ease, visibility 0.5s;
@@ -2049,13 +2053,16 @@ input, select, textarea {
 		}
 
 /* Footer */
+#footer .copyright {
+	color: #505051;
+	font-size: 0.9em;
+}
 
-	#footer .copyright {
-		color: #505051;
-		font-size: 0.9em;
-	}
+#footer .copyright a {
+	color: inherit;
+}
 
-		#footer .copyright a {
-			color: inherit;
-		}
 
+#header a:hover, #footer a:hover {
+	background-color: transparent !important;
+}
