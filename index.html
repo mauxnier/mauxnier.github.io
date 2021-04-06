@@ -212,20 +212,20 @@
 					headers: myHeaders,
 					body: data
 				})
-				.then(res => res)
-				.then(data => {
+				.then(res => res.text())
+				.then(text => {
 					// code to handle the response
-					console.log(data);
+					// console.log(text);
 
-					// var data = JSON.parse(text);
-					// formSnackbar = document.getElementById("form-snackbar");
+					var data = JSON.parse(text);
+					formSnackbar = document.getElementById("form-snackbar");
 
-					// formSnackbar.innerHTML = data['message'];
-					// if (data['success'] === true) {
-					// 	formSnackbar.classList.add("alert-success");
-					// } else {
-					// 	formSnackbar.classList.add("alert-danger");
-					// }
+					formSnackbar.innerHTML = data['message'];
+					if (data['success'] === true) {
+						formSnackbar.classList.add("alert-success");
+					} else {
+						formSnackbar.classList.add("alert-danger");
+					}
 				})
 				.catch(err => {
 					console.error('Error: ', err);

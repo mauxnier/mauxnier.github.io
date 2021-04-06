@@ -1,6 +1,6 @@
 <?php
-
-header('Access-Control-Allow-Origin: https://mauxnier.github.io/');
+header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: https://mauxnier.github.io');
 
 $emailSnackbar = [
     'success' => false,
