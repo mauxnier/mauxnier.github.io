@@ -1,6 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-// header('Access-Control-Allow-Origin: https://mauxnier.github.io');
+// header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: https://mauxnier.github.io');
 
 $emailSnackbar = [
     'success' => false,
@@ -48,12 +48,19 @@ if (isset($_POST['name']) && $_POST['name'] !== '') {
                 $headers .= 'Content-transfer-encoding: 7bit';
 
                 // submit email
-                mail($to, $subject, $body, $headers);
+                $isAcceptedForDelivery = mail($to, $subject, $body, $headers);
 
-                $emailSnackbar = [
-                    'success' => true,
-                    'message' => "Votre message a bien été envoyé. Je vous recontacterai au plus vite."
-                ];
+                if ($isAcceptedForDelivery) {
+                    $emailSnackbar = [
+                        'success' => true,
+                        'message' => "Votre message a bien été accepté. Je vous recontacterai au plus vite."
+                    ];
+                } else {
+                    $emailSnackbar = [
+                        'success' => false,
+                        'message' => "Il y a eu une erreur. Veuillez me contacter directement par contact@killianmonnier.com"
+                    ];
+                }
             } else {
                 $emailSnackbar = [
                     'success' => false,
