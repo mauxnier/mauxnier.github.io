@@ -1,5 +1,7 @@
 <?php
 
+header('Access-Control-Allow-Origin: https://mauxnier.github.io/');
+
 $emailSnackbar = [
     'success' => false,
     'message' => "Erreur inconnue. Veuillez réessayer"

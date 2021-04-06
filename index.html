@@ -198,7 +198,10 @@
 	<script>
 		// @see https://youtu.be/l6E7E6L8o2Y
 		function sendEmail() {
-			let url = 'send_email.php';
+			let url = 'https://self-exiled-drill.000webhostapp.com/send_email.php';
+			
+			let myHeaders = new Headers();
+			
 			let data = new FormData();
 			data.append('name', document.getElementById("name").value);
 			data.append('email', document.getElementById("email").value);
@@ -206,26 +209,26 @@
 
 			fetch(url, {
 					method: 'POST',
+					headers: myHeaders,
 					body: data
 				})
-				.then(function(response) {
-					return response.text();
-				})
-				.then(function(text) {
-					console.log(text);
+				.then(res => res)
+				.then(data => {
+					// code to handle the response
+					console.log(data);
 
-					var data = JSON.parse(text);
-					formSnackbar = document.getElementById("form-snackbar");
+					// var data = JSON.parse(text);
+					// formSnackbar = document.getElementById("form-snackbar");
 
-					formSnackbar.innerHTML = data['message'];
-					if (data['success'] === true) {
-						formSnackbar.classList.add("alert-success");
-					} else {
-						formSnackbar.classList.add("alert-danger");
-					}
+					// formSnackbar.innerHTML = data['message'];
+					// if (data['success'] === true) {
+					// 	formSnackbar.classList.add("alert-success");
+					// } else {
+					// 	formSnackbar.classList.add("alert-danger");
+					// }
 				})
-				.catch(function(error) {
-					console.error(error);
+				.catch(err => {
+					console.error('Error: ', err);
 				});
 
 			// prevent html form
