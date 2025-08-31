@@ -3,7 +3,7 @@
 	Multiverse by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-	Custom by killianmonnier.com
+	Custom by mauxnier.github.io
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 
@@ -32,7 +32,7 @@
 			<h1><a href="index.html"><strong>Mes projets</strong> - Killian Monnier</a></h1>
 			<nav>
 				<ul>
-					<li><a href="#footer" class="icon solid fa-info-circle">À propos</a></li>
+					<li><a href="#footer" class="icon solid fa-info-circle">ME CONTACTER</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -171,64 +171,31 @@
 			<div class="inner split">
 				<div>
 					<section>
-						<h2>À propos de moi</h2>
+						<h2>À propos de Killian MONNIER</h2>
 						<p>
-							Actuellement étudiant en informatique, je suis en apprentissage au sein d'une entreprise.
+							Après un DUT informatique et une année d'apprentissage dans une jeune start-up vannetaise en tant que développeur d'application web back-end.
+							J'ai réalisé le parcours académique "Cybersécurité et Sciences des données" sous statut d'apprenti au sein de l'école nationale supérieure d'ingénieurs de Bretagne Sud.
+							J'ai pu travailler une année au sein de la Préfecture Maritime de l'Atlantique à Brest en tant que développeur web fullstack puis deux année au sein de Thales SIX-GTS de Cholet en tant qu'alternant ingénieur en développement Java.
 						</p>
 						<p>
-							J'ai le souhait de me spécialiser dans des domaines qui me passionnent, tels
-							que la cybersécurité, les systèmes embarqués ou encore la science des données.
+							Actuellement ingénieur travaillant dans un grand groupe industriel français d'électronique et de défense, je n'hésite pas à améliorer mes compétences et à toujours apprendre, car, comme une célébre maxime attribuée par Platon au philosophe grec Socrate (Apologie de Socrate [21d]) : « Je ne sais qu'une chose, c'est que je ne sais rien »
 						</p>
-					</section>
-					<section>
-						<h2>Suivez-moi sur ...</h2>
-						<ul class="icons">
-							<!-- <li><a href="https://twitter.com/" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.facebook.com/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-							<li><a href="https://github.com/mauxnier/" class="icon brands fa-github"><span
-										class="label">GitHub</span></a></li>
-							<li><a href="https://www.linkedin.com/in/killianmonnier/"
-									class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						</ul>
 					</section>
 					<p class="copyright">
 						&copy; Killian Monnier. Design: <a href="http://html5up.net">HTML5 UP</a>.
 					</p>
 				</div>
 				<div>
+					<section style="margin-bottom: 2.5rem;">
+						<h2>Me contacter pour une demande de devis, prestations, informations...</h2>
+						<button onclick="sendMail()" class="primary">Envoyer un mail</button>
+					</section>
 					<section>
-						<h2>Contactez-moi !</h2>
-						<!-- <form action="mailto:monnier.killian.pro@gmail.com" method="post" enctype="text/plain">
-							<label for="name">Nom :</label>
-							<input type="text" id="name" name="name" required><br>
-							<label for="subject">Sujet :</label>
-							<input type="text" id="subject" name="subject" required><br>
-							<label for="message">Message :</label><br>
-							<textarea id="message" name="message" rows="4" required></textarea><br>
-							<input type="submit" value="Envoyer">
-							<input type="reset" value="Réinitialiser">
-						</form> -->
-						<div id="form-snackbar" class="alert"></div>
-						<form id="contact-form" action="mailto:monnier.killian.pro@gmail.com" method="GET"
-							enctype="text/plain">
-							<div class=" fields">
-								<div class="field half">
-									<input type="text" name="name" id="name" placeholder="Votre nom" required />
-								</div>
-								<div class="field half">
-									<input type="text" name="subject" id="subject" placeholder="Votre sujet" required />
-								</div>
-								<div class="field">
-									<textarea name="body" id="body" rows="4" placeholder="Écrivez votre message..."
-										required></textarea>
-								</div>
-							</div>
-							<ul class="actions">
-								<li><input type="submit" value="Envoyer" class="primary" /></li>
-								<li><input type="reset" value="Annuler" /></li>
-							</ul>
-						</form>
+						<h2>Suivez-moi sur ...</h2>
+						<ul class="icons">
+							<li><a href="https://github.com/mauxnier/" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/killianmonnier/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						</ul>
 					</section>
 				</div>
 			</div>
@@ -245,43 +212,26 @@
 
 	<!-- Contact form script -->
 	<script>
-		// @see https://youtu.be/l6E7E6L8o2Y
-		function sendEmail() {
-			let url = 'https://self-exiled-drill.000webhostapp.com/send_email.php';
+		function sendMail() {
+			const to = "monniercorps@gmail.com";
+			const subject = "mauxnier.github.io - Demande d'information";
+			const body = "Bonjour,\n\nJe voudrais avoir des informations sur...";
 
-			let myHeaders = new Headers();
+			// URL Gmail
+			const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-			let data = new FormData();
-			data.append('name', document.getElementById("name").value);
-			data.append('email', document.getElementById("email").value);
-			data.append('message', document.getElementById("message").value);
+			// Fallback mailto
+			const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-			fetch(url, {
-				method: 'POST',
-				headers: myHeaders,
-				body: data
-			})
-				.then(res => res.text())
-				.then(text => {
-					// code to handle the response
-					// console.log(text);
+			// Ouvre Gmail dans un nouvel onglet
+			const win = window.open(gmailUrl, "_blank");
 
-					var data = JSON.parse(text);
-					formSnackbar = document.getElementById("form-snackbar");
-
-					formSnackbar.innerHTML = data['message'];
-					if (data['success'] === true) {
-						formSnackbar.classList.add("alert-success");
-					} else {
-						formSnackbar.classList.add("alert-danger");
-					}
-				})
-				.catch(err => {
-					console.error('Error: ', err);
-				});
-
-			// prevent html form
-			return false;
+			// Si le navigateur bloque ou que Gmail n'est pas accessible → fallback
+			setTimeout(() => {
+				if (!win || win.closed || typeof win.closed === "undefined") {
+				window.location.href = mailtoUrl;
+				}
+			}, 1000);
 		}
 	</script>
 </body>
